@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpdG9yYmFsZXN0cm8iLCJpZCI6IjYzZjNhMTUwNzg5ZGZkNzZjZmZiNzNlMyIsImlhdCI6MTY3NjkyNTM1OX0.svTWkaUWGVJeLDOmjcgWhcLrH3gV_LPzzVdGL9-UWy0
+
+{
+    "title": "To get headers",
+    "author": "Some author",
+    "url": "some url"
+}

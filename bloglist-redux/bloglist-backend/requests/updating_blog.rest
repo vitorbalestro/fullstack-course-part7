@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/63f4e37836ff5bb579ef915d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpdG9yYmFsZXN0cm8iLCJpZCI6IjYzZjNhMTUwNzg5ZGZkNzZjZmZiNzNlMyIsImlhdCI6MTY3NjkyNTM1OX0.svTWkaUWGVJeLDOmjcgWhcLrH3gV_LPzzVdGL9-UWy0
+
+{
+    "title": "updated title",
+    "author": "updated author",
+    "url": "updated url"
+}

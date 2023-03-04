@@ -1,0 +1,15 @@
+coverage
+cypress
+node_modules
+public
+.babelrc
+.env
+.eslintignore
+.eslint.js
+.gitignore
+package.json
+package-lock.json
+cypress.config.js
+.prettierignore
+.prettierrc.json
+
