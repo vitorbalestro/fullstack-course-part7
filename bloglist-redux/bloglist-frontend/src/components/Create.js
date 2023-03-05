@@ -27,7 +27,7 @@ const CreateNewBlogForm = ({ createNewBlogFormRef }) => {
 
     const handleCreate = async (event) => {
         event.preventDefault()
-        createNewBlogFormRef.current.toggleVisibility()        
+        createNewBlogFormRef.current.toggleVisibility()
         dispatch(createBlog({ title, author, url }))
         setTitle('')
         setAuthor('')

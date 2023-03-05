@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import Blogs from './components/Blog'
 import LoginForm from './components/LoginForm'
@@ -6,7 +6,9 @@ import Notification from './components/Notification'
 import DisplayUser from './components/User'
 import ToggableCreateNewBlogForm from './components/ToggableCreateForm'
 import { initializeBlogs } from './reducers/blogReducer'
+import { initializeAllUsers } from './reducers/allUsersReducer'
 import { loadUser } from './reducers/userReducer'
+import AllUsers from './components/AllUsers'
 
 const App = () => {
 
@@ -16,6 +18,7 @@ const App = () => {
     useEffect(() => {
         dispatch(initializeBlogs())
         dispatch(loadUser())
+        dispatch(initializeAllUsers())
     },[dispatch])
     return (
 
@@ -28,6 +31,7 @@ const App = () => {
                     <DisplayUser dispatch={dispatch} />
                     <ToggableCreateNewBlogForm />
                     <Blogs dispatch={dispatch}/>
+                    <AllUsers />
                 </>
             }
 

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import loginService from '../services/login'
 import { setSuccessNotification, setErrorNotification, clearNotification } from '../reducers/notificationReducer'
+import blogService from '../services/blogs'
 
 const userSlice = createSlice({
     name: 'user',
@@ -22,6 +23,7 @@ export const loadUser = () => {
         if(loggedUserJSON) {
             const user = JSON.parse(loggedUserJSON)
             dispatch(setUser(user))
+            blogService.setToken(user.token)
         }
         else dispatch(setUser(null))
     }
@@ -37,6 +39,7 @@ export const logInUser = (username, password) => {
                 'loggedUser', JSON.stringify(user)
             )
             dispatch(setUser(user))
+            blogService.setToken(user.token)
             dispatch(setSuccessNotification({ message: 'Logged in!' }))
             setTimeout(() => dispatch(clearNotification()), 5000)
         } catch (exception) {

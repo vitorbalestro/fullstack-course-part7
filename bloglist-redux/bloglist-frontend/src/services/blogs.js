@@ -1,11 +1,12 @@
 import axios from 'axios'
-import { useSelector } from 'react-redux'
 
 const baseUrl = '/api/blogs'
 
-const user = useSelector(state => state.user)
+let token = null
 
-const token = `Bearer ${user.token}`
+const setToken = (newToken) => {
+    token = `Bearer ${newToken}`
+}
 
 const getAll = async () => {
     const response = await axios.get(baseUrl)
@@ -36,4 +37,4 @@ const deleteBlog = async (id) => {
     await axios.delete(`${baseUrl}/${id}`, config)
 }
 
-export default { getAll, create, update, deleteBlog }
+export default { setToken, getAll, create, update, deleteBlog }

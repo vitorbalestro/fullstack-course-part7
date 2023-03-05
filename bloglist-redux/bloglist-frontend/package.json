@@ -11,6 +11,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
+    "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -18,13 +19,7 @@
     "build": "react-scripts build",
     "test": "NODE_OPTIONS=--experimental-vm-modules react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "eslint .",
-    "cypress:open": "cypress open"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    "eslint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
