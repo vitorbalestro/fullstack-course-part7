@@ -1,19 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import Blogs from './components/Blog'
-import LoginForm from './components/LoginForm'
 import Notification from './components/Notification'
-import DisplayUser from './components/User'
-import ToggableCreateNewBlogForm from './components/ToggableCreateForm'
 import { initializeBlogs } from './reducers/blogReducer'
 import { initializeAllUsers } from './reducers/allUsersReducer'
 import { loadUser } from './reducers/userReducer'
-import AllUsers from './components/AllUsers'
+import Home from './components/Home'
+import { BrowserRouter as Router } from 'react-router-dom'
+
+
 
 const App = () => {
 
     const dispatch = useDispatch()
-    const user = useSelector(state => state.user)
     const notification = useSelector(state => state.notification)
     useEffect(() => {
         dispatch(initializeBlogs())
@@ -23,18 +21,10 @@ const App = () => {
     return (
 
         <div>
-            <h1>Blog List App!</h1>
             <Notification notification={notification} />
-            { user === null ?
-                <LoginForm dispatch={dispatch} />
-                : <>
-                    <DisplayUser dispatch={dispatch} />
-                    <ToggableCreateNewBlogForm />
-                    <Blogs dispatch={dispatch}/>
-                    <AllUsers />
-                </>
-            }
-
+            <Router>
+                <Home dispatch={dispatch} />
+            </Router>
         </div>
     )
 }
