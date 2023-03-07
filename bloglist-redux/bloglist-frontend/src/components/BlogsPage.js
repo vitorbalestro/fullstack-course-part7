@@ -1,10 +1,16 @@
 import Blogs from './Blog'
+import ToggableCreateNewBlogForm from './ToggableCreateForm'
 
-const BlogsPage = ({ dispatch }) => {
+const BlogsPage = () => {
 
     return (
         <div>
-            <Blogs dispatch={dispatch}/>
+            <div>
+                <ToggableCreateNewBlogForm />
+            </div>
+            <div>
+                <Blogs />
+            </div>
         </div>
     )
 }

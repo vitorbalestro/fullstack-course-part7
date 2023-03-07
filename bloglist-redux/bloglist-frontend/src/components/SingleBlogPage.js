@@ -1,6 +1,8 @@
 import { updateBlog, deleteBlog } from '../reducers/blogReducer'
 import getLoggedUserId from '../utils/user'
 import { useNavigate } from 'react-router-dom'
+import CommentForm from './CommentForm'
+import DisplayComments from './DisplayComments'
 
 function incrementLike(blog, dispatch){
     const id = blog.id
@@ -41,8 +43,9 @@ const RemoveButton = ({ blog, dispatch }) => {
                     handleDelete(blog,dispatch)
                 }}>remove</button>
             </div>
-            : <>
-            </>
+            :<div>
+                added by {blog.user.name}
+            </div>
     )
 }
 
@@ -55,18 +58,22 @@ const LikeButton = ({ blog, dispatch }) => {
 
 
 const SingleBlogPage = ({ blog, dispatch }) => {
+    if(!blog) return null
     return (
         <div>
             <h1>
-                {blog.title}
-            </h1><div>
-                {blog.url}
-            </div><div>
+                {blog.title} by {blog.author}
+            </h1><p>
+                <a href={blog.url}>{blog.url}</a>
+            </p><p>
                     likes&nbsp;{blog.likes} &nbsp;
                 <LikeButton blog={blog} dispatch={dispatch} />
-            </div><div>
-                {blog.author}
-            </div><RemoveButton blog={blog} dispatch={dispatch} />
+            </p><RemoveButton blog={blog} dispatch={dispatch} />
+            <div><CommentForm blog={blog} dispatch={dispatch}/>
+            </div>
+            <div>
+                <DisplayComments blog={blog}/>
+            </div>
         </div>
     )
 
