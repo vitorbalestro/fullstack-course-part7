@@ -1,21 +1,17 @@
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Table } from 'react-bootstrap'
 
 const Blog = ({ blog }) => {
 
-
-    const blogStyle = {
-        paddingTop: 10,
-        paddingLeft: 2,
-        border: 'solid',
-        borderWidth: 1,
-        marginBottom: 5
-    }
-
     return (
-        <div className='blog' style={blogStyle}>
-            <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>&nbsp;
-        </div>
+        <tr>
+            <td>
+                <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>&nbsp;
+            </td><td>
+                {blog.author}
+            </td>
+        </tr>
     )
 }
 
@@ -24,9 +20,17 @@ const Blogs = () => {
     const blogs = useSelector(state => state.blogs)
     return(
         <>
-            <h2>Blogs</h2>
+            <h2 className="mt-5">Blogs</h2>
             <div>
-                {blogs.map(blog => <Blog key={blog.id} blog={blog} />)}
+                <Table striped>
+                    <tbody>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                        </tr>
+                        {blogs.map(blog => <Blog key={blog.id} blog={blog} />)}
+                    </tbody>
+                </Table>
             </div>
         </>
     )

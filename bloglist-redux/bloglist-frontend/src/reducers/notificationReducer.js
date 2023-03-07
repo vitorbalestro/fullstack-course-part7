@@ -1,24 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const successfulNotificationStyle = {
-    color: 'green',
-    background: 'lightgrey',
-    fontSize: 20,
-    borderStyle: 'solid',
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 10
-}
-
-const errorNotificationStyle = {
-    color: 'red',
-    background: 'lightgrey',
-    fontSize: 20,
-    borderStyle: 'solid',
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 10
-}
 
 const initialState = {
     message: null,
@@ -31,10 +12,10 @@ const notificationSlice = createSlice({
     initialState,
     reducers: {
         setSuccessNotification(state,action){
-            return{ message: action.payload.message, style: successfulNotificationStyle }
+            return{ message: action.payload.message, style: 'success' }
         },
         setErrorNotification(state, action){
-            return{ message: action.payload.message, style: errorNotificationStyle }
+            return{ message: action.payload.message, style: 'danger' }
         },
         clearNotification() {
             return{

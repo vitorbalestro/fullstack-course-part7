@@ -20,8 +20,10 @@ const App = () => {
     },[dispatch])
     return (
 
-        <div>
-            <Notification notification={notification} />
+        <div className="container">
+            <div className="mt-5">
+                <Notification notification={notification} />
+            </div>
             <Router>
                 <Home dispatch={dispatch} />
             </Router>

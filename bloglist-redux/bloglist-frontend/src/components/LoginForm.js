@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { logInUser } from '../reducers/userReducer'
+import { Form, Button } from 'react-bootstrap'
 
 const LoginForm = ({ dispatch }) => {
 
@@ -16,20 +17,25 @@ const LoginForm = ({ dispatch }) => {
 
     return (
         <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <div>
-            username&nbsp;
-                    <input type="text" value={username} id='username'
-                        name="Username" onChange={({ target }) => setUsername(target.value)} />
-                </div>
-                <div>
-            password&nbsp;
-                    <input type="password" value={password} id='password'
-                        name="Password" onChange={({ target }) => setPassword(target.value)} />
-                </div>
-                <button type="submit">login</button>
-            </form>
+            <h2 className="mt-5">Login</h2>
+            <Form onSubmit={handleLogin}>
+                <Form.Group>
+                    <Form.Label>username:</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="username"
+                        onChange={({ target }) => setUsername(target.value)}
+                    />
+                    <Form.Label className="mt-2">password:</Form.Label>
+                    <Form.Control
+                        type="password"
+                        onChange={({ target }) => setPassword(target.value)}
+                    />
+                    <Button className="mt-3" variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form.Group>
+            </Form>
         </div>
     )
 }
