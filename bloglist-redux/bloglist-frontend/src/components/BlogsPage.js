@@ -5,7 +5,7 @@ const BlogsPage = () => {
 
     return (
         <div>
-            <div>
+            <div className="mt-3">
                 <ToggableCreateNewBlogForm />
             </div>
             <div>

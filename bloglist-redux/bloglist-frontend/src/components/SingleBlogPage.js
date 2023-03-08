@@ -60,7 +60,7 @@ const LikeButton = ({ blog, dispatch }) => {
 const SingleBlogPage = ({ blog, dispatch }) => {
     if(!blog) return null
     return (
-        <div>
+        <div className='mt-5'>
             <h1>
                 {blog.title} by {blog.author}
             </h1><p>
@@ -69,7 +69,7 @@ const SingleBlogPage = ({ blog, dispatch }) => {
                     likes&nbsp;{blog.likes} &nbsp;
                 <LikeButton blog={blog} dispatch={dispatch} />
             </p><RemoveButton blog={blog} dispatch={dispatch} />
-            <div><CommentForm blog={blog} dispatch={dispatch}/>
+            <div className='mt-5'><CommentForm blog={blog} dispatch={dispatch}/>
             </div>
             <div>
                 <DisplayComments blog={blog}/>

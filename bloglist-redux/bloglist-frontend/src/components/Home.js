@@ -1,7 +1,7 @@
 import Menu from './Menu'
 import { useSelector } from 'react-redux'
 import LoginForm from './LoginForm'
-import { Routes, Route, useMatch } from 'react-router-dom'
+import { Routes, Route, useMatch, Link } from 'react-router-dom'
 import BlogsPage from './BlogsPage'
 import AllUsers from './AllUsers'
 import SingleBlogPage from './SingleBlogPage'
@@ -30,7 +30,9 @@ const Home = ({ dispatch }) => {
         : null
     return(
         <div>
-            <h1>Blog List App!</h1>
+            <h1>
+                <Link class="link" style={{ color: 'black' }} to={'/'}>Blog List App!</Link>
+            </h1>
             {user === null ?
                 <></>
                 :<>
@@ -39,7 +41,7 @@ const Home = ({ dispatch }) => {
             }
             <Routes>
                 {user=== null?
-                    <Route path='/' element={<LoginForm dispatch={dispatch} />} />
+                    <Route path='/' element={<LoginForm dispatch={dispatch}/>} />
                     :<Route path='/' element={<EmptyLoginForm />} />
                 }
                 <Route path='/blogs' element={<BlogsPage />} />

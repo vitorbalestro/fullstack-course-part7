@@ -18,10 +18,10 @@ const DisplayUser = ({ dispatch }) => {
 
     const name = user.name
     return(
-        <>
+        <div style={{ color:'white' }}>
             {name} logged in&nbsp;
             <button type="submit" onClick={handleLogout}>logout</button>
-        </>
+        </div>
     )
 }
 
